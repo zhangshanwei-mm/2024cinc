@@ -85,11 +85,11 @@ You can use the scripts in this repository to generate synthetic ECG images for 
             -o ptb-xl/records500_hidden/00000 \
             --print_header \
             --mask_unplotted_samples
-
+        
         python prepare_image_data.py \
             -i ptb-xl/records500_hidden/00000 \
             -o ptb-xl/records500_hidden/00000
-
+        
         python remove_hidden_data.py \
             -i ptb-xl/records500_hidden/00000 \
             -o ptb-xl/records500_hidden/00000 \
@@ -142,30 +142,30 @@ If you have trouble running your code, then please try the follow steps to run t
 
         user@computer:~/example$ ls
         model  python-example-2024  test_data  test_outputs  training_data
-
+        
         user@computer:~/example$ cd python-example-2024/
-
+        
         user@computer:~/example/python-example-2024$ docker build -t image .
-
+        
         Sending build context to Docker daemon  [...]kB
         [...]
         Successfully tagged image:latest
-
+        
         user@computer:~/example/python-example-2024$ docker run -it -v ~/example/model:/challenge/model -v ~/example/test_data:/challenge/test_data -v ~/example/test_outputs:/challenge/test_outputs -v ~/example/training_data:/challenge/training_data image bash
-
+        
         root@[...]:/challenge# ls
             Dockerfile             README.md         test_outputs
             evaluate_model.py      requirements.txt  training_data
             helper_code.py         team_code.py      train_model.py
             LICENSE                run_model.py      [...]
-
+        
         root@[...]:/challenge# python train_model.py -d training_data -m model -v
-
+        
         root@[...]:/challenge# python run_model.py -d test_data -m model -o test_outputs -v
-
+        
         root@[...]:/challenge# python evaluate_model.py -d test_data -o test_outputs
         [...]
-
+        
         root@[...]:/challenge# exit
         Exit
 
@@ -186,3 +186,22 @@ Please see the [Challenge website](https://physionetchallenges.org/2024/) for mo
 * [Evaluation code](https://github.com/physionetchallenges/evaluation-2024)
 * [Frequently asked questions (FAQ) for this year's Challenge](https://physionetchallenges.org/2024/faq/)
 * [Frequently asked questions (FAQ) about the Challenges in general](https://physionetchallenges.org/faq/)
+
+
+
+# Reference
+
+We appreciate your citations if you find our paper related and useful to your research!
+
+```
+@inproceedings{zhang2024diffusion,
+  title={Diffusion Models and Masked Training Helps Digitization and Classification of Multiple Layout ECG Images},
+  author={Zhang, Shanwei and Wang, Kexin and Liang, Zisheng and Zhang, Deyun and Geng, Shijia and Li, Jun and Zhao, Qinghao and Zhou, Yuxi and Hong, Shenda}
+  booktitle={2024 Computing in Cardiology (CinC)},
+  volume={51},
+  pages={1--4},
+  year={2024},
+  organization={IEEE}
+}
+```
+
